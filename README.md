@@ -2,9 +2,10 @@
 Lemuria is a re-implemenation of the [Atlantis](https://github.com/Atlantis-PBEM/Atlantis) PBeM game
 engine in [Kotlin](https://kotlinlang.org)
 
-The name Lemuria was chosen as it, like Atlantis, is a sunken island of yore.
+The name Lemuria was chosen as it, like Atlantis, is a sunken island of yore.  It is, to the
+Pacific ocean, what Atlantis is to the Atlantic ocean.
 
-The intent is for this to be a report-format / order-format compatible reimplmentation of the
+The intent is for this to be a report-format / order-format compatible reimplementation of the
 code being used for Atlantis New Origins V5 (and newer).
 
 This code is developed and licensed under a Creative Commons 4.0 License (CC BY-NC-SA 4.0).
