@@ -1,6 +1,7 @@
 plugins {
+    val kotlinVer = libs.versions.kotlin.get()
     base
-    kotlin("jvm") version "1.7.21" apply false
+    kotlin("jvm") version kotlinVer apply false
     alias(libs.plugins.kotlinter) apply false
     alias(libs.plugins.testlogger) apply false
 }

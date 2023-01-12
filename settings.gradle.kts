@@ -14,9 +14,9 @@ fun defineVar(name: String, value: String): String {
     val g = (gradle as ExtensionAware)
     g.extra[name] = value
     return value
- }
+}
 
- dependencyResolutionManagement {
+dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
             version("kotlin", "1.7.21")
@@ -25,7 +25,7 @@ fun defineVar(name: String, value: String): String {
             library("mockk", "io.mockk", "mockk").version("1.13.3")
         }
     }
- }
+}
 
 
 rootProject.name = "lemuria"
