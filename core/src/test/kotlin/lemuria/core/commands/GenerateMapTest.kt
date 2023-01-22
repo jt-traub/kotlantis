@@ -12,7 +12,6 @@ internal class GenerateMapTest {
     @Test
     fun testMapTypes() {
         GenerateMap.mapTypes.forEach {
-            println("testing $it")
             assertDoesNotThrow({ testClass.checkArgs(it, "dummy") })
         }
 

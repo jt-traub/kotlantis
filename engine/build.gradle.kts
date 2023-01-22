@@ -10,7 +10,6 @@ fun getVarDefinition(name: String): String {
 
 val projectName = "${rootProject.name}"
 val engineVersion = getVarDefinition("engineVersion")
-val gameRuleset = getVarDefinition("gameRuleset")
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
@@ -22,7 +21,6 @@ plugins {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":ruleset-${gameRuleset}"))
     implementation(kotlin("reflect"))
     testImplementation(kotlin("test"))
     testImplementation(libs.mockk)

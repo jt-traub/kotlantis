@@ -23,6 +23,7 @@ dependencyResolutionManagement {
             plugin("kotlinter", "org.jmailen.kotlinter").version("3.13.0")
             plugin("testlogger", "com.adarshr.test-logger").version("3.2.0")
             library("mockk", "io.mockk", "mockk").version("1.13.3")
+            library("kotlinx-serialization", "org.jetbrains.kotlinx", "kotlinx-serialization-json").version("1.4.1")
         }
     }
 }
@@ -30,10 +31,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "lemuria"
 val engineVersion = defineVar("engineVersion", "0.0.1 ")
-val gameRuleset = defineVar("gameRuleset", "standard")
 
 include(
     "engine",
     "core",
-    "ruleset-$gameRuleset"
 )
