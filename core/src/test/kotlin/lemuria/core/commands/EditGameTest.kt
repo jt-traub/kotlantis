@@ -1,7 +1,7 @@
 package lemuria.core.commands
 
 import io.mockk.every
-import io.mockk.mockkClass
+import io.mockk.mockk
 import io.mockk.verify
 import lemuria.core.EditCancelledException
 import lemuria.core.GameInterface
@@ -14,7 +14,8 @@ internal class EditGameTest {
 
     @Test
     fun testCancellationDoesNotError() {
-        val game = mockkClass(GameInterface::class)
+        val game = mockk<GameInterface>()
+
         every { game.loadGame() } returns game
         every { game.editGame() } throws EditCancelledException()
         every { game.saveGame() } returns game

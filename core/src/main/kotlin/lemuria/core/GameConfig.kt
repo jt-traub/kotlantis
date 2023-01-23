@@ -1,18 +1,21 @@
 package lemuria.core
 
+import lemuria.core.models.WorldData
 import lemuria.core.models.WorldDef
-import lemuria.core.models.WorldMap
 
 class GameConfig(
-    worldConfig: DataReader = WorldConfig()
+    worldConfig: DataReader
 ) {
     val world: WorldDef = loadJson<WorldDef>(worldConfig)
-    var map: WorldMap? = null
+    var data: WorldData? = null
 
-    fun loadMap(fileName: String) {
-        val reader = JsonFileReader(fileName)
-        map = loadJson<WorldMap>(reader)
+    fun loadData(reader: DataReader) {
+        data = loadJson<WorldData>(reader)
     }
 
-    fun createWorld() { map = WorldMap(world) }
+    fun createWorld() { data = WorldData(world) }
+
+    fun saveData(writer: DataWriter) {
+        saveJson(data, writer)
+    }
 }

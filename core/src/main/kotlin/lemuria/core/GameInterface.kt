@@ -1,7 +1,6 @@
 package lemuria.core
 
 import kotlin.random.Random
-// import kotlin.reflect.full.primaryConstructor
 
 // For now suppress unused paramater warnings
 @Suppress("UNUSED_PARAMETER")
@@ -13,14 +12,28 @@ class GameInterface(val name: String, val version: String) {
     // Random number instance this game will use
     var rng: Random = Random(2023)
 
-    fun loadConfig(): GameInterface {
-        config = GameConfig()
+    fun loadConfig(reader: DataReader? = null): GameInterface {
+        val confReader = reader ?: WorldConfig()
+        config = GameConfig(confReader)
         return this
     }
 
-    fun newGame(): GameInterface { config!!.createWorld(); return this }
-    fun loadGame(): GameInterface { config!!.loadMap("world.in"); return this }
-    fun saveGame(): GameInterface { return this }
+    fun newGame(): GameInterface {
+        config!!.createWorld()
+        return this
+    }
+
+    fun loadGame(reader: DataReader? = null): GameInterface {
+        val dataReader = reader ?: GameData()
+        config!!.loadData(dataReader)
+        return this
+    }
+
+    fun saveGame(writer: DataWriter? = null): GameInterface {
+        val dataWriter = writer ?: GameOutput()
+        config!!.saveData(dataWriter)
+        return this
+    }
 
     fun generateStats(): GameInterface { return this }
     fun executeTurn(): GameInterface { return this }
